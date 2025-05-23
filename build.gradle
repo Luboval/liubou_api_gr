@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+}
+
+checkstyle {
+    toolVersion = "10.12.4"
+    configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+}
+
+group = 'eu.senla'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    implementation 'io.rest-assured:rest-assured:5.5.3'
+    implementation 'io.rest-assured:json-path:5.5.3'
+    implementation 'io.rest-assured:xml-path:5.5.3'
+    implementation 'io.rest-assured:json-schema-validator:5.5.3'
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation group: 'org.testng', name: 'testng', version: '7.11.0'
+    // https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin
+    //implementation group: 'org.apache.maven.plugins', name: 'maven-checkstyle-plugin', version: '3.6.0'
+    // https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin
+    implementation 'org.apache.maven.plugins:maven-surefire-plugin:3.5.3'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.38'
+    // https://mvnrepository.com/artifact/com.diffplug.spotless/spotless-plugin-gradle
+    implementation 'com.diffplug.spotless:spotless-plugin-gradle:7.0.3'
+    //checkstyle "com.puppycrawl.tools:checkstyle:${checkstyle.toolVersion}"
+    //checkstyle "group:artifact:version"
+    // https://mvnrepository.com/artifact/net.datafaker/datafaker
+    implementation 'net.datafaker:datafaker:2.4.3'
+
+}
+
+test {
+    useTestNG()
+}

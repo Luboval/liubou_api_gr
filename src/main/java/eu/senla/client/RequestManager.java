@@ -11,9 +11,10 @@ import static io.restassured.RestAssured.given;
 public class RequestManager {
 
     public static <T> T getRequest(RequestSpecification requestSpecification,
-                            ResponseSpecification responseSpecification,
-                            String path,
-                            Class<T> clazz) {
+                                             ResponseSpecification responseSpecification,
+                                             String path,
+                                             Class<T> clazz) {
+        Object obj;
         return
                 given()
                         .spec(requestSpecification)

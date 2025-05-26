@@ -3,6 +3,7 @@ import eu.senla.client.SpecConfig;
 import eu.senla.model.AdminRequest;
 import eu.senla.model.PostAdminResponse;
 import net.datafaker.Faker;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 public class AdminTest {
     AdminRequest request;
     @BeforeTest
-    public void setup(){
+    public void setup() {
         Faker faker = new Faker();
         request = new AdminRequest(
                 faker.name().firstName(),
@@ -21,7 +22,7 @@ public class AdminTest {
                 faker.number().digits(8),
                 LocalDate.now().toString()
         );
-        System.out.println("Request "+request);
+        System.out.println("Request " + request);
     }
 
     @Test
@@ -32,12 +33,14 @@ public class AdminTest {
                 "/sendAdminRequest",
                 request,
                 PostAdminResponse.class);
-        System.out.println("Request "+request);
+      //  System.out.println("Request " + request);
 
-        System.out.println(response);
+        //System.out.println(response);
+       // System.out.println(response.getRequestId());
+       // System.out.println(response.getData().getFirst().getStaffId());
 
 
-        //Assert.assertNotNull(response.getRequestId());
+        Assert.assertNotNull(response.getRequestId());
 
     }
 }

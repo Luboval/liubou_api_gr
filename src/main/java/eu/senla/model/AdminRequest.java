@@ -3,7 +3,7 @@ package eu.senla.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public record AdminRequest (
+public record AdminRequest(
         @JsonProperty("personalLastName")
         String personalLastName,
         @JsonProperty("personalFirstName")

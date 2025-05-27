@@ -8,12 +8,16 @@ public record UserRequest(
         String mode,
         @JsonProperty("personalLastName")
         String personalLastName,
+        @JsonProperty("personalFirstName")
+        String personalFirstName,
         @JsonProperty("personalMiddleName")
         String personalMiddleName,
         @JsonProperty("personalPhoneNumber")
         String personalPhoneNumber,
         @JsonProperty("personalNumberOfPassport")
         String personalNumberOfPassport,
+        @JsonProperty("personalAddress")
+        String personalAddress,
         @JsonProperty("citizenLastName")
         String citizenLastName,
         @JsonProperty("citizenFirstName")
@@ -26,6 +30,8 @@ public record UserRequest(
         String citizenNumberOfPassport,
         @JsonProperty("citizenGender")
         String citizenGender,
+        @JsonProperty("citizenAddress")
+        String citizenAddress,
         @JsonProperty("dateOfMarriage")
         String dateOfMarriage,
         @JsonProperty("newLastName")

@@ -27,7 +27,7 @@ public class AdminTest {
 
     @Test
     void sendAdminRequestTest() {
-        PostAdminResponse response = RequestManager.postRequest(
+        PostAdminResponse response = RequestManager.postAdminRequest(
                 SpecConfig.requestSpecification(),
                 SpecConfig.responseSpecification(),
                 "/sendAdminRequest",

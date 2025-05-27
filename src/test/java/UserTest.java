@@ -30,7 +30,7 @@ public class UserTest {
                 LocalDate.now().minus(Period.ofDays((new Random().nextInt(365 * 70)))).toString(),
                 faker.number().digits(8),
                 faker.gender().binaryTypes(),
-                LocalDate.now().minus(Period.ofDays((new Random().nextInt(365 )))).toString(),
+                LocalDate.now().minus(Period.ofDays((new Random().nextInt(365)))).toString(),
                 faker.name().lastName(),
                 faker.name().lastName(),
                 faker.name().maleFirstName(),

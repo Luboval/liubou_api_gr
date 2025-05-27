@@ -49,6 +49,6 @@ public record UserRequest(
         @JsonProperty("death_dateOfDeath,")
         String deathDateOfDeath,
         @JsonProperty("death_placeOfDeath")
-        String deathPlaceOfDeath ) {
+        String deathPlaceOfDeath) {
 
 }

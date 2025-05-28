@@ -1,5 +1,6 @@
 package eu.senla.client;
 
+import eu.senla.utils.ReadPropertyFile;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -15,8 +16,8 @@ public class SpecConfig {
 
     public static RequestSpecification requestSpecification() {
         return new RequestSpecBuilder()
-                .setBaseUri("https://regoffice.senla.eu")
-                .setAuth(RestAssured.basic("user", "senlatest"))
+                .setBaseUri(ReadPropertyFile.getProperty("BASEURI"))
+                .setAuth(RestAssured.basic(ReadPropertyFile.getProperty("USERNAME"), ReadPropertyFile.getProperty("PASSWORD")))
                 .setContentType(ContentType.JSON)
                 .log(LogDetail.ALL)
                 .build();

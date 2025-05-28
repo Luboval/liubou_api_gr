@@ -1,3 +1,4 @@
+import eu.senla.client.ApiPoints;
 import eu.senla.client.RequestManager;
 import eu.senla.client.SpecConfig;
 import eu.senla.model.PostUserResponse;
@@ -48,20 +49,14 @@ public class UserTest {
         System.out.println("Request " + request);
     }
 
-    @Test
+    @Test(testName = "User test")
     void sendUserRequestTest() {
         PostUserResponse response = RequestManager.postUserRequest(
                 SpecConfig.requestSpecification(),
                 SpecConfig.responseSpecification(),
-                "/sendUserRequest",
+                ApiPoints.POSTUSERPOINT,
                 request,
                 PostUserResponse.class);
-      //  System.out.println("Request " + request);
-
-        //System.out.println(response);
-       // System.out.println(response.getRequestId());
-       // System.out.println(response.getData().getFirst().getStaffId());
-
 
         Assert.assertNotNull(response.getRequestId());
 

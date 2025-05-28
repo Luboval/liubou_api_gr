@@ -1,3 +1,4 @@
+import eu.senla.client.ApiPoints;
 import eu.senla.client.RequestManager;
 import eu.senla.client.SpecConfig;
 import eu.senla.model.AdminRequest;
@@ -25,20 +26,14 @@ public class AdminTest {
         System.out.println("Request " + request);
     }
 
-    @Test
+    @Test(testName = "Admin test")
     void sendAdminRequestTest() {
         PostAdminResponse response = RequestManager.postAdminRequest(
                 SpecConfig.requestSpecification(),
                 SpecConfig.responseSpecification(),
-                "/sendAdminRequest",
+                ApiPoints.POSTADMINPOINT,
                 request,
                 PostAdminResponse.class);
-      //  System.out.println("Request " + request);
-
-        //System.out.println(response);
-       // System.out.println(response.getRequestId());
-       // System.out.println(response.getData().getFirst().getStaffId());
-
 
         Assert.assertNotNull(response.getRequestId());
 

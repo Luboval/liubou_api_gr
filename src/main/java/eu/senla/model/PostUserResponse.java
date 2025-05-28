@@ -8,9 +8,10 @@ import java.util.List;
 
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PostAdminResponse {
+public class PostUserResponse {
     @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY) //to allow using single value without []
-    private List<PostAdminResponseData> data;
+    private List<PostUserResponseData> data;
     private String requestId;
+
 
 }

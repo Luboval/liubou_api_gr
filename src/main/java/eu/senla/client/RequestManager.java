@@ -65,5 +65,4 @@ public class RequestManager {
                         .as(clazz);
 
     }
-
 }

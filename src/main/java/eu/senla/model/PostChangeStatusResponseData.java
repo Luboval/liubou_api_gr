@@ -21,9 +21,7 @@ public class PostChangeStatusResponseData {
     private String kindOfApplication;
     @JsonProperty("statusofapplication")
     private String statusOfApplication;
-    @JsonProperty("channel")
     private String channel;
-    @JsonProperty("image")
     private String image;
 
 }

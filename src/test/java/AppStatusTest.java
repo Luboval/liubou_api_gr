@@ -1,7 +1,7 @@
 import eu.senla.client.ApiPoints;
 import eu.senla.client.RequestManager;
 import eu.senla.client.SpecConfig;
-import eu.senla.model.GetAppStatusResponse;
+import eu.senla.model.application.GetAppStatusResponse;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

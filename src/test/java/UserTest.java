@@ -18,7 +18,6 @@ public class UserTest {
     public void setup() {
         Faker faker = new Faker();
 
-
         request = new UserRequest(
                 "wedding",
                 faker.name().lastName(),

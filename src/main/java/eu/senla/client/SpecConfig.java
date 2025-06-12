@@ -29,4 +29,11 @@ public class SpecConfig {
                 .expectStatusCode(200)
                 .build();
     }
+
+    public static ResponseSpecification errorResponseSpecification() {
+        return new ResponseSpecBuilder()
+                .log(LogDetail.ALL)
+                .expectStatusCode(400)
+                .build();
+    }
 }

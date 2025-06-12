@@ -13,5 +13,4 @@ public class PostUserResponse {
     private List<PostUserResponseData> data;
     private String requestId;
 
-
 }

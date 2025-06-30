@@ -1,4 +1,4 @@
-package eu.senla.model.admin.response;
+package eu.senla.model.admin.apiresponse;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -10,5 +10,4 @@ public class PostAdminResponseData {
 
     @JsonProperty("staffid")
     private Integer staffId;
-
 }

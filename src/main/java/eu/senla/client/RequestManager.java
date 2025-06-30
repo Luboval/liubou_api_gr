@@ -1,9 +1,10 @@
 package eu.senla.client;
 
-import eu.senla.model.AdminRequest;
+import eu.senla.model.UserRequest;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import lombok.experimental.UtilityClass;
+
 
 import static io.restassured.RestAssured.given;
 
@@ -28,11 +29,11 @@ public class RequestManager {
 
     }
 
-    public static <T> T postRequest(RequestSpecification requestSpecification,
-                                    ResponseSpecification responseSpecification,
-                                    String path,
-                                    AdminRequest request,
-                                    Class<T> clazz) {
+    public static <T> T postAdminRequest(RequestSpecification requestSpecification,
+                                         ResponseSpecification responseSpecification,
+                                         String path,
+                                         Object request,
+                                         Class<T> clazz) {
         return
                 given()
                         .spec(requestSpecification)
@@ -46,4 +47,22 @@ public class RequestManager {
                         .as(clazz);
     }
 
+    public static <T> T postUserRequest(RequestSpecification requestSpecification,
+                                        ResponseSpecification responseSpecification,
+                                        String path,
+                                        UserRequest request,
+                                        Class<T> clazz) {
+        return
+                given()
+                        .spec(requestSpecification)
+                        .basePath(path)
+                        .body(request)
+                        .when()
+                            .post()
+                        .then()
+                            .spec(responseSpecification)
+                        .extract()
+                        .as(clazz);
+
+    }
 }

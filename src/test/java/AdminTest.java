@@ -1,46 +1,19 @@
-import eu.senla.client.RequestManager;
-import eu.senla.client.SpecConfig;
-import eu.senla.model.AdminRequest;
-import eu.senla.model.PostAdminResponse;
-import net.datafaker.Faker;
+import eu.senla.model.admin.request.SendAdminRequest;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.time.LocalDate;
-
 public class AdminTest {
-    AdminRequest request;
-    @BeforeTest
-    public void setup() {
-        Faker faker = new Faker();
-        request = new AdminRequest(
-                faker.name().firstName(),
-                faker.name().lastName(),
-                faker.funnyName().name(),
-                faker.number().digits(9),
-                faker.number().digits(8),
-                LocalDate.now().toString()
-        );
-        System.out.println("Request " + request);
+
+    @Test(testName = "Admin test")
+    void sendAdminRequestTest() {
+
+        Assert.assertNotNull(SendAdminRequest.sendCorrectAdminRequest().getRequestId());
+
     }
 
-    @Test
-    void sendAdminRequestTest() {
-        PostAdminResponse response = RequestManager.postRequest(
-                SpecConfig.requestSpecification(),
-                SpecConfig.responseSpecification(),
-                "/sendAdminRequest",
-                request,
-                PostAdminResponse.class);
-      //  System.out.println("Request " + request);
+    @Test(testName = "Negative Admin Test")
+    void sendNegativeAdminRequestTest() {
 
-        //System.out.println(response);
-       // System.out.println(response.getRequestId());
-       // System.out.println(response.getData().getFirst().getStaffId());
-
-
-        Assert.assertNotNull(response.getRequestId());
-
+        Assert.assertEquals(SendAdminRequest.sendNegativeAdminRequest().getMessage(), "Property personalFirstName is null!");
     }
 }

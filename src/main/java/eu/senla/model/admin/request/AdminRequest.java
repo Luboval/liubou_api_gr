@@ -1,4 +1,4 @@
-package eu.senla.model;
+package eu.senla.model.admin.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

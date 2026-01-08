@@ -24,7 +24,7 @@ public class AdminTest {
         StaffDBResponse staffDBResponse = DbPreparedStatement.getResponseForPreparedSelectQuery(
                 StaffQuery.selectStaffParam,
                 1,
-                postAdminResponse.getData().getFirst().getStaffId());
+                postAdminResponse.getData().get(0).getStaffId());
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(staffDBResponse.lastName(), adminRequest.personalLastName(), "lastName does not match");

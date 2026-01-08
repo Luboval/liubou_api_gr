@@ -28,7 +28,7 @@ public class ChangeStatusTest {
                 ApiPoints.POSTCHANGESTATUSPOINT,
                 request,
                 PostChangeStatusResponse.class);
-        Assert.assertEquals(response.getData().getFirst().getStatusOfApplication(), "approved");
+        Assert.assertEquals(response.getData().get(0).getStatusOfApplication(), "approved");
 
     }
 }

@@ -25,4 +25,24 @@ public class Applicant {
     @JsonProperty("registration_address")
     private String registrationAddress;
 
+    @Override
+    public String toString() {
+        return "Applicant{"
+                + " "
+                + applicantId
+                + " "
+                + surName
+                + " "
+                + name
+                + " "
+                + middleName
+                + " "
+                + passportNumber
+                + " "
+                + phonenumber
+                + " "
+                + registrationAddress
+                + " }";
+    }
+
 }

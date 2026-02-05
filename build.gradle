@@ -11,13 +11,15 @@ checkstyle {
 group = 'eu.senla'
 version = '1.0-SNAPSHOT'
 
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
     // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
-    annotationProcessor 'org.projectlombok:lombok:1.18.38'
+
     implementation 'io.rest-assured:rest-assured:5.5.3'
     implementation 'io.rest-assured:json-path:5.5.3'
     implementation 'io.rest-assured:xml-path:5.5.3'
@@ -30,7 +32,11 @@ dependencies {
     //checkstyle "com.puppycrawl.tools:checkstyle:${checkstyle.toolVersion}"
     //checkstyle "group:artifact:version"
     implementation 'com.puppycrawl.tools:checkstyle:10.24.0'
+    annotationProcessor 'org.projectlombok:lombok:1.18.38'
     testImplementation 'com.puppycrawl.tools:checkstyle:10.24.0'
+    testImplementation 'org.projectlombok:lombok:1.18.38'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
     compileOnly 'com.puppycrawl.tools:checkstyle:10.24.0'
     runtimeOnly 'com.puppycrawl.tools:checkstyle:10.24.0'
     // https://mvnrepository.com/artifact/org.postgresql/postgresql
@@ -38,6 +44,9 @@ dependencies {
     // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
     implementation 'com.zaxxer:HikariCP:7.0.2'
 
+}
+compileJava {
+    options.encoding = 'UTF-8'
 }
 
 test {

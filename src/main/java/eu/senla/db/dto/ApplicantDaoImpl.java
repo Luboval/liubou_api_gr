@@ -3,15 +3,24 @@ package eu.senla.db.dto;
 import eu.senla.db.entity.Applicant;
 import lombok.extern.slf4j.Slf4j;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static eu.senla.db.queries.ApplicantQueries.*;
+import static eu.senla.db.queries.ApplicantQueries.deleteApplicantByName;
+import static eu.senla.db.queries.ApplicantQueries.insertIntoApplicant;
+import static eu.senla.db.queries.ApplicantQueries.selectAllApplicants;
+import static eu.senla.db.queries.ApplicantQueries.selectApplicantById;
+import static eu.senla.db.queries.ApplicantQueries.updateApplicant;
+
 
 @Slf4j
-public class ApplicantDaoImpl implements ApplicantDAO{
+public class ApplicantDaoImpl implements ApplicantDAO {
 
     private final Connection connection;
 
@@ -35,8 +44,7 @@ public class ApplicantDaoImpl implements ApplicantDAO{
                         resultSet.getString("registration_address")
                 ));
             }
-        }
-        catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return Optional.empty();

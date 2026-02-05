@@ -3,6 +3,7 @@ import eu.senla.db.dto.ApplicantDaoImpl;
 import eu.senla.db.entity.Applicant;
 import eu.senla.utils.ConnectionPool;
 import lombok.extern.slf4j.Slf4j;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.sql.Connection;
@@ -13,10 +14,25 @@ public class ApplicantTest {
     public void getApplicantByIdTest()  {
         try (Connection connection = ConnectionPool.getConnection()) {
             ApplicantDAO applicantDAO = new ApplicantDaoImpl(connection);
-            applicantDAO.get(24535).ifPresent(a -> System.out.println(a.getName()));
+            applicantDAO.get(67071).ifPresent(a -> System.out.println(a.getName()));
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test (testName = "Applicant get test 2")
+    public void getApplicantByIdTest2()  {
+
+        try (Connection connection = ConnectionPool.getConnection()) {
+            ApplicantDAO applicantDAO = new ApplicantDaoImpl(connection);
+           // applicantDAO.get(67071).stream().toString();
+            log.info(applicantDAO.get(67071).map(Applicant::getName).get());
+            Assert.assertEquals(applicantDAO.get(67071).map(Applicant::getName).get(), "Им");
+            log.info("new message");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        log.info("new message2");
     }
 
     @Test(testName = "Get all applicant")
